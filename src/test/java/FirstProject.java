@@ -9,11 +9,11 @@ public class FirstProject {
     @Test
     public void test1() throws InterruptedException {
 
-        //s1
+        //1. Navigate to http://duotify.us-east-2.elasticbeanstalk.com/register.php
         WebDriver driver = new ChromeDriver();
         driver.get("http://duotify.us-east-2.elasticbeanstalk.com/register.php");
 
-        //s2
+        //2. Verify the title is "Welcome to Duotify!"
         Thread.sleep(1000);
         String expectedT = "Welcome to Duotify!";
         String actualT = driver.getTitle();
@@ -25,12 +25,12 @@ public class FirstProject {
             System.out.println("Title verification fail");
         }
 
-        //s3
+        //3. Click on Signup here
         Thread.sleep(2000);
         WebElement signUp = driver.findElement(By.id("hideLogin"));
         signUp.click();
 
-        //s4
+        //4. Fill out the form with the required info using Faker class
         Faker faker = new Faker();
         Thread.sleep(1000);
         String userName = faker.name().username();
@@ -55,19 +55,22 @@ public class FirstProject {
 //confermation
         driver.findElement(By.id("password2")).sendKeys(passWord);
 
-        //s5
+        //5. Click on Sign up
         Thread.sleep(1000);
         WebElement registerButton =  driver.findElement(By.name("registerButton"));
         registerButton.click();
 
-//s6
+//6. Once logged in to the application, verify that the URL is:
+//http://duotify.us-east-2.elasticbeanstalk.com/browse.php?
         String currentUrl = driver.getCurrentUrl();
         if (currentUrl.equals("http://duotify.us-east-2.elasticbeanstalk.com/browse.php?")){
             System.out.println("URL verification successful");
         } else {
             System.out.println("URL verification failed");
         }
-//s7
+//7. In the left navigation bar, verify that your first and last name is the same the first and last name that you
+// used when signing up.
+// (use getText() method to extract the text of the element)
         Thread.sleep(1000);
         WebElement nameElement = driver.findElement(By.id("nameFirstAndLast"));
         String verifyName = nameElement.getText();
@@ -76,7 +79,8 @@ public class FirstProject {
         } else {
             System.out.println("S7 Name verification failed");
         }
-        //s8
+        //8. Click on the first and last name on the left navigation bar and verify the first and last name
+        // on the main window is correct and then click logout.
         nameElement.click();
         Thread.sleep(2000);
         WebElement profileNameElement = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/h1[1]"));
@@ -90,7 +94,8 @@ public class FirstProject {
         WebElement logoutLink = driver.findElement(By.xpath("(//button[normalize-space()='LOGOUT'])[1]"));
         logoutLink.click();
 
-        //s9
+        //9. Verify that you are logged out by verifying the URL is:
+        //http://duotify.us-east-2.elasticbeanstalk.com/register.php
         Thread.sleep(1000);
         String currentUrl1 = driver.getCurrentUrl();
         if (currentUrl1.equals("http://duotify.us-east-2.elasticbeanstalk.com/register.php")){
@@ -99,7 +104,7 @@ public class FirstProject {
             System.out.println("S9 URL verification failed");
         }
 
-        //s10
+        //10. Login using the same username and password when you signed up.
         Thread.sleep(1000);
         WebElement usernameLogin = driver.findElement(By.cssSelector("#loginUsername"));
         usernameLogin.sendKeys(userName);
@@ -110,7 +115,7 @@ public class FirstProject {
         WebElement loginB = driver.findElement(By.name("loginButton"));
         loginB.click();
 
-        //s11
+        //11. Verify successful login by verifying that the home page contains the text "You Might Also Like".
         Thread.sleep(1000);
         WebElement homeText = driver.findElement(By.xpath("//h1[normalize-space()='You Might Also Like']"));
         String homeTextContent = homeText.getText();
@@ -120,7 +125,7 @@ public class FirstProject {
             System.out.println("Login verification failed.");
         }
 
-        //s12
+        //12. Log out once again and verify that you are logged out.
         Thread.sleep(1000);
         driver.findElement(By.id("nameFirstAndLast")).click();
         Thread.sleep(1000);
