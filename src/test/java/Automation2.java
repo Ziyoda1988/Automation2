@@ -1,24 +1,16 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.javafaker.Faker;
 import org.testng.Assert;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class Progect2 {
+public class Automation2 {
     public static void main(String[] args) throws InterruptedException, IOException {
         // Set up Chrome driver
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\ziyod\\Downloads\\Telegram Desktop\\chromedriver.exe");
