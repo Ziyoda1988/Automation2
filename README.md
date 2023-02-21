@@ -1,26 +1,37 @@
-# Automation1
-FirstAutomationProgect
-INSTRUCTIONS:
-
-In this assignment you will be automating a test case for signing up and logging into a web application.
-Create a new maven project in IntelliJ.
-Implement the steps below in @Test annotated method.
-Once finished, push the project to your own repository and share the repository link in a given repoLink.txt file and submit. (You should not write any code here in Replit)
+# Automation2
+CREATE A WEB ORDER
 
 
-STEPS:
-1. Navigate to http://duotify.us-east-2.elasticbeanstalk.com/register.php
-2. Verify the the title is "Welcome to Duotify!"
-3. Click on Signup here
-4. Fill out the form with the required info using Faker class 
-5. Click on Sign up
-6. Once logged in to the application, verify that the URL is:
-http://duotify.us-east-2.elasticbeanstalk.com/browse.php?
-7. In the left navigation bar, verify that your first and last name is the same the first and last name that you used when signing up. (use getText() method to extract the text of the element)
-8. Click on the first and last name on the left navigation bar and verify the first and last name on the main window is correct and then click logout.
-9. Verify that you are logged out by verifying the URL is:
-http://duotify.us-east-2.elasticbeanstalk.com/register.php
-10. Login using the same username and password when you signed up.
-11. Verify successful login by verifying that the home page contains the text "You Might Also Like".
-12. Log out once again and verify that you are logged out.
+1. Launch Chrome browser.
+2. Navigate to http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx
+3. Login using username Tester and password test
+4. Click on Order link
+5. Enter a random product quantity between 1 and 100
+6. Click on Calculate and verify that the Total value is correct. 
+   The logic of calculating is as follows:
+   Price per unit is 100.  The discount of 8 % is applied to quantities of 10+.
+   So for example, if the quantity is 8, the Total should be 800.
+   If the quantity is 20, the Total should be 1840.
+   If the quantity is 77, the Total should be 7084. And so on.
+
+   Using Faker class:
+6. Enter random first name and last name.
+7. Enter random street address
+8. Enter random city
+9. Enter random state
+10. Enter a random 5 digit zip code
+
+EXTRA: As an extra challenge, for steps 6-10 download 1000 row of corresponding realistic data from mockaroo.com in a csv format and load it to your program and use the random row of data from there each time. 
+
+11. Select the card type randomly. On each run your script should select a random type. (You need to put all checkboxes into a list and retrieve a random element from the list and click it)
+12. Enter the random card number: 
+      If Visa is selected, the card number should be a visa number that starts with 4.
+      If MasterCard is selected, card number should be a mastercard number that starts with 5.
+      If American Express is selected, card number should be an amex number that starts with 3.
+13. Enter a valid expiration date (newer than the current date)
+14. Click on Process
+15. Verify that “New order has been successfully added” message appeared on the page.
+16. Click on View All Orders link.
+17. The placed order details appears on the first row of the orders table. Verify that the entire information contained on the row (Name, Product, Quantity, etc) matches the previously entered information in previous steps.
+18. Log out of the application.
 
